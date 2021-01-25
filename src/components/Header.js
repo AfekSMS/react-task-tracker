@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 const Header = ({ title }) => {
   // instead of using props  and prop.TheNameOfTheProperty you can destructure with curly braces like shown
   return (
-    <header>
+    <header className="header">
       <h1>{title}</h1>
+      <button className="btn">Add</button>
     </header>
   );
 };
