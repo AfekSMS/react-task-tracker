@@ -2,14 +2,15 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 
 // ****instead of using props  and prop.TheNameOfTheProperty you can destructure with curly braces like shown
-const Header = ({ title }) => {
-  const onClick = () => {
-    console.log("Click");
-  };
+const Header = ({ title, onAdd, showAdd }) => {
   return (
     <header className="header">
       <h1>{title}</h1>
-      <Button color="green" text="Add" onClick={onClick} />
+      <Button
+        color={showAdd === true ? "red" : "green"}
+        text={showAdd === true ? "Close" : "Add"}
+        onClick={onAdd}
+      />
     </header>
   );
 };
