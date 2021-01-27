@@ -1,16 +1,21 @@
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 import Button from "./Button";
 
 // ****instead of using props  and prop.TheNameOfTheProperty you can destructure with curly braces like shown
 const Header = ({ title, onAdd, showAdd }) => {
+  const location = useLocation();
+
   return (
     <header className="header">
       <h1>{title}</h1>
-      <Button
-        color={showAdd === true ? "red" : "green"}
-        text={showAdd === true ? "Close" : "Add"}
-        onClick={onAdd}
-      />
+      {location.pathname === "/" && (
+        <Button
+          color={showAdd === true ? "red" : "green"}
+          text={showAdd === true ? "Close" : "Add"}
+          onClick={onAdd}
+        />
+      )}
     </header>
   );
 };
